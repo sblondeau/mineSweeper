@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>MineSweeper</h1>
+<a href="?reset=1">Reset</a>
+
+{% if win  %}
+    Win
+{% endif %}
+
+<table>
+    <tbody>
+    {% for y in 0..(map|length -1) %}
+        <tr>
+            {% for x in 0..(map[y]|length -1) %}
+                <td>
+                    {% if discovered[x][y] is defined %}
+                        {{ discovered[x][y] }}
+                    {% else %}
+                        <a href="index.php?x={{ x }}&y={{ y }}"></a>
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
