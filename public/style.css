@@ -29,3 +29,20 @@ td a:hover {
 .win {
     color:green;
 }
+
+.mine1 {
+    color:blue;
+}
+
+.mine2 {
+    color:red;
+}
+
+.mine3 {
+    color:green;
+}
+
+.mine* {
+    color:black;
+    font-weight: bold;
+}
