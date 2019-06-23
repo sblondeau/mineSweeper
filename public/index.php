@@ -27,16 +27,18 @@ $y = $_GET['y'] ?? null;
 
 if (isset($x) && isset($y)) {
     try {
-        $_SESSION['discovered'][$x][$y] = $mineSweeper->search($x, $y);
+        $_SESSION['discovered'] = $mineSweeper->search($x, $y);
     } catch (\OutOfRangeException $e) {
         echo $e->getMessage();
     } catch (\LogicException $e) {
+        $_SESSION['discovered'] = $mineSweeper->showAllBombs();
+
         echo $e->getMessage();
-        unset($_SESSION['discovered']);
-        unset($_SESSION['map']);
+//        unset($_SESSION['discovered']);
+//        unset($_SESSION['map']);
     }
 }
-
+//var_dump($_SESSION['discovered']);
 echo $twig->render('index.html.twig', [
     'map' => $mineSweeper->getMap(),
     'discovered' => $_SESSION['discovered'] ?? null,

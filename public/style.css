@@ -12,16 +12,20 @@ td {
     text-align: center;
     color:white;
     background-color: darkgrey;
+    border:1px solid grey;
 }
 
 td a {
     width: 100%;
     height: 100%;
     display: block;
-    border: 1px solid grey;
     background-color: gainsboro;
 }
 
 td a:hover {
-    background-color: darkgrey;
+    background-color: #b7b7b7;
+}
+
+.win {
+    color:green;
 }

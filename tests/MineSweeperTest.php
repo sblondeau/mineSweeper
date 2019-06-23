@@ -18,6 +18,12 @@ class MineSweeperTest extends TestCase
             [0,0,1],
             [1,0,0],
         ];
+        $this->bigMap = [
+            [1,0,0,0,1],
+            [1,1,0,0,1],
+            [1,0,0,0,1],
+            [1,0,0,0,1],
+        ];
     }
 
     public function testBoom()
@@ -30,13 +36,13 @@ class MineSweeperTest extends TestCase
     public function testNoBombMapCenter()
     {
         $mineSweeper = new MineSweeper($this->map);
-        $this->assertEquals(3, $mineSweeper->search(1,1));
+        $this->assertEquals([1=>[1=>3]], $mineSweeper->search(1,1));
     }
 
     public function testNoBombMapBorder()
     {
         $mineSweeper = new MineSweeper($this->map);
-        $this->assertEquals(2, $mineSweeper->search(2,0));
+        $this->assertEquals([2=>[0=>2]], $mineSweeper->search(2,0));
     }
 
 

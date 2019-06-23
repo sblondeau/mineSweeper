@@ -13,7 +13,7 @@
 <a href="?reset=1">Reset</a>
 
 {% if win  %}
-    Win
+    <span class="win">Win</span>
 {% endif %}
 
 <table>
@@ -23,7 +23,7 @@
             {% for x in 0..(map[y]|length -1) %}
                 <td>
                     {% if discovered[x][y] is defined %}
-                        {{ discovered[x][y] }}
+                        {{ discovered[x][y] ? discovered[x][y] : ''}}
                     {% else %}
                         <a href="index.php?x={{ x }}&y={{ y }}"></a>
                     {% endif %}
